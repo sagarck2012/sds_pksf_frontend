@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+      <h2 class="display-4">Crate List</h2>
+      <div class="col-2 mx-auto">
+        <div class="form-group">
+          <select class="form-control" (change)="onCrateStatusChange($any($event.target).value)">
+            <option selected value="">All</option>
+            <option value="ready">Ready</option>
+            <option value="crated">Crated</option>
+            <option value="shipped">Shipped</option>
+            <option value="received">Received</option>
+          </select>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Crate No.</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Net Volume</th>
+            <th scope="col">Production House</th>
+            <th scope="col">Registration Date</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let crate of filteredCrates | slice: (page-1)*pageSize : (page-1)*pageSize + pageSize">
+            <td>{{crate.crate_no}}</td>
+            <td>{{crate.bar_code}}</td>
+            <td>{{crate.net_volume}}</td>
+            <td>{{crate.production_house}}</td>
+            <td>{{crate.registration_datetime}}</td>
+            <td>{{crate.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <ngb-pagination [pageSize]="pageSize" [collectionSize]="filteredCrates.length" [(page)]="page" [directionLinks]="false"></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <h2 class="display-4">Return Crate</h2>
+            <form (ngSubmit)="onSubmit()">
+                <!-- List view -->
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="crateBarcode" (ngModelChange)="addCrate($event)" name="crateBarcode" value="" class="form-control"
+                        placeholder="Crate Barcode" aria-label="Crate Barcode" aria-describedby="crate-barcode">
+                    <!-- <button class="btn btn-info" type="button" (click)="addCrate()">Add</button> -->
+                </div>
+                <div class="list-group">
+                    <li href="#" class="list-group-item" *ngFor="let crateBarcode of crateBarcodes">
+                        {{crateBarcode}}
+                        <button class="btn btn-info float-right" (click)="removeCrate(crateBarcode)" type="button"
+                            value="">x</button>
+                    </li>
+                </div>
+                <!-- List view ends -->
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="checked" id="checked" [checked]="checked" (change)="onCheckboxStatusChange(!checked)">
+                    <label class="form-check-label" for="checked">Checked</label>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="checked === false">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

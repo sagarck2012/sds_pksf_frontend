@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-6 mx-auto">
+            <div class="text-center">
+                <img src="{{'data:image/jpg;base64,' +  barcode}}" />
+            </div>
+            <div class="text-center">
+                <button id="printPageButton" class="btn btn-info" (click)="printSticker()">Print</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-4 mx-auto">
+      <h2 class="display-4">Crop List</h2>
+      <div class="list-group">
+        <a [routerLink]="['/crop', crop.id, 'types']" class="list-group-item" *ngFor="let crop of crops">
+          <strong>{{crop.name}}</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

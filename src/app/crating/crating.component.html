@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <h2 class="display-4">Crating</h2>
+            <form (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Crate Barcode</mat-label>
+                    <input class="formControl" type="text" placeholder="Crate Number" aria-label="CrateNumber" matInput
+                        [formControl]="crate_id" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let crateNumber of filteredCrates | async" [value]="crateNumber">
+                            {{crateNumber}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <!-- List view -->
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="packageBarcode" (ngModelChange)="addPackage($event)"
+                        name="packageBarcode" value="" class="form-control" placeholder="Package Barcode"
+                        aria-label="Package Barcode" aria-describedby="package-barcode">
+                    <!-- <button class="btn btn-info" type="button">Add</button> -->
+                </div>
+                <ul class="list-group">
+                    <li href="#" class="list-group-item" *ngFor="let packageBarcode of packageBarcodes">
+                        {{packageBarcode}}
+                        <button class="btn btn-info float-right" (click)="removePackage(packageBarcode)" type="button"
+                            value="">x</button>
+                    </li>
+                </ul>
+                <!-- List view ends -->
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="checked" id="checked" [checked]="checked" (change)="onCheckboxStatusChange(!checked)">
+                    <label class="form-check-label" for="checked">Checked</label>
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="packageBarcodes.length === 0 || crate_id === null || checked === false">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

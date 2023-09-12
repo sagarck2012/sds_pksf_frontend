@@ -1,0 +1,20 @@
+
+#printBtn {
+    margin-top: 5%;
+}
+
+
+@media print{
+    #printBtn{
+        display: none;
+    }
+
+    div.row{
+        margin-right: 100px;
+    }
+
+    div.row.justify-content-center{
+        padding-right: 150px;
+    }
+    
+}

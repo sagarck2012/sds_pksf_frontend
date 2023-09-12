@@ -1,0 +1,53 @@
+<!-- http://localhost:4200/packaging/detail/52/0607211111244 -->
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="card">
+            <p>Product: {{product_eng_name}}</p>
+            <p>Net weight: {{net_weight}}</p>
+            <p>Origin: {{origin_address}}</p>
+            <p>Packaging Date: {{product_packaging_date}}</p>
+            <p>For more details please visit:</p>
+            <p>{{more_details_page}}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf ="this.receiving_date_by_customer !== null" >
+        <img src="../../assets/images/received.png">
+        <div class="col-2">
+            <p><strong>Received</strong></p>
+            <p>Organic vegetable is now in your hand</p>
+            <p>{{receiving_date_by_customer}}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf ="this.received_by !== null">
+        <img src="../../assets/images/retail.png">
+        <div class="col-2">
+            <p><strong>Retail Shop</strong></p>
+            <p>Vegetable crate received by shop owner - {{received_by}}</p>
+            <p>{{receiving_date_by_shop_owner}}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf ="this.shipped_by !== null">
+        <img src="../../assets/images/shipped.png">
+        <div class="col-2">
+            <p><strong>Shipped</strong></p>
+            <p>Vegetable crate shipment process completed by - {{shipped_by}}</p>
+            <p>{{shipping_date}}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf ="this.packaged_by !== null">
+        <img src="../../assets/images/processing.png">
+        <div class="col-2">
+            <p><strong>Processing</strong></p>
+            <p>Vegetable harvesting and packaging completed by- {{packaged_by}}</p>
+            <p>{{packaging_date}}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" *ngIf ="planted_by !== null">
+        <img src="../../assets/images/planting.png">
+        <div class="col-2">
+            <p><strong>Planting</strong></p>
+            <p>Seed sowing data insertion completed by - {{planted_by}}</p>
+            <p>{{planting_date}}</p>
+        </div>
+    </div>
+</div>

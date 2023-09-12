@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <!-- Sticker  -->
+            <div class="row" *ngFor="let sticker of printed_sticker_list" id="sticker">
+                <div class="col-2 vertical">
+                    <div class="row">
+                        <input type="checkbox" class="form-check-input" (click)="selectedSticker(sticker.id)">
+                        <div class="col align-self-center">
+                            <p id="grade"><strong>Type: (Grade A)</strong></p>
+                        </div>
+                        <div class="col align-self-center">
+                            <img id="sds-logo" src="/assets/images/sds_logo.png" alt="SDS Logo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="col align-self-center">
+                        <img id="qr-code" src="{{'data:image/jpg;base64,' +  sticker.qr_code_base64}}" />
+                    </div>
+                    <div class="col align-self-center">
+                        <p><strong>{{sticker.name_en}}</strong></p>
+                        <p>Net Weight: {{sticker.net_weight}}</p>
+                        <p>Packaging Date: {{sticker.packaging_date}}</p>
+                        <p><strong>SDS Enterprise</strong></p>
+                    </div>
+                </div>
+                <div class="col-6 vertical">
+                    <div class="col align-self-center">
+                        <img id="bar-code" src="{{'data:image/jpg;base64,' +  sticker.bar_code_base64}}" />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p class="text-info"><strong>Barcode: {{sticker.sticker_bar_code}}</strong></p>
+                </div>
+            </div>
+            <!-- Sticker  -->
+            <div class="row">
+                <div class="">
+                    <input id="comment" type="text" [(ngModel)]="comment" name="comment" class="form-control"
+                        placeholder="Comment">
+                    <button id="printPageButton" class="btn btn-info" (click)="renewSticker()">Renew Sticker</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

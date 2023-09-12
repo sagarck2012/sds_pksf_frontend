@@ -1,0 +1,11 @@
+input.form-control {
+  margin-top: 4%;
+}
+
+form {
+  text-align: center;
+}
+
+button, input{
+  width: -webkit-fill-available;
+}

@@ -1,0 +1,35 @@
+.display-4 {
+    color: grey;
+}
+
+div.col-4{
+    padding-top: 2%;
+}
+div.col-4.icon{
+    padding-right: 0%;
+}
+
+p {
+    font-size: 24px;
+}
+
+h5.card-title {
+    color: gray;
+}
+
+div.card-body{
+    text-align: center;
+    padding: 0%;
+}
+div.card-body#table{
+    padding: 2%;
+}
+
+div.col-12{
+    margin-top: 5%;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+}

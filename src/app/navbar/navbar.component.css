@@ -1,0 +1,36 @@
+nav {
+    background-color: #343957;
+}
+
+h1{
+    color: #A0B4C8D9;
+}
+
+h1:hover{
+    color: white;
+}
+
+a{
+    color: #A0B4C8D9;
+    font-size: 16px;
+}
+
+a:hover{
+    color: whitesmoke;
+}
+
+a.dropdown-item{
+    color: black;
+}
+
+
+
+a.dropdown-item{
+    display: flex;
+    align-items: center;
+}
+
+img#sds-logo{
+    height: 40px;
+    width: 40Px;
+  }

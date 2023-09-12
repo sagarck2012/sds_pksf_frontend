@@ -1,0 +1,89 @@
+div.col-4.vertical {   
+    padding: 0%;
+    margin: 0%;
+    text-align: center;
+    
+}
+
+div.col-4.mx-auto{
+    margin-top: 5%;
+}
+div.col-4 {
+    padding: 0%;
+    margin: 0%;
+    text-align: center;
+    
+}
+div.col.align-self-center {
+    padding: 0%;
+}
+
+p {
+    font-size: 6px;
+    margin: 0%;
+    padding: 0%;
+    height: 10px;
+}
+
+p.text-info{
+    font-size: 20px;
+}
+
+div#sticker {
+    height: 207px;
+    width: 287px;
+    margin-top: 10%;
+}
+
+img#sds-logo {
+    margin-top: 30px;
+    height: 40px;
+    width: 40px;
+}
+img#qr-code{
+    height: 90px;
+    width: 90px;
+}
+
+
+p#grade{
+    margin-top: 50px;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+img#bar-code{
+    width: 180px;
+    height: 70px;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.input-group{
+    text-align: center;
+    width: 50%;
+}
+
+#printPageButton {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+@media print {
+    #printPageButton {
+        display: none;
+    }
+    div#sticker.row.justify-content-center{
+        page-break-after: always;
+        page-break-before: always;
+    }
+    
+    .col-3{
+        display: none;
+    }
+    .col-4{
+        padding: 0%;
+        margin: 0%;
+    }
+    
+}

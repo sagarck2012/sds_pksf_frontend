@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <h2 class="display-4">Crop Type List</h2>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let cropType of cropTypes">
+                    <strong>{{cropType.local_name}}</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

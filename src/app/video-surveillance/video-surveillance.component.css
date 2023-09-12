@@ -1,0 +1,17 @@
+.btn.btn-info {
+    margin: 2%;
+}
+
+.webcam-wrapper{
+    text-align: center;
+}
+  
+  .snapshot {
+    text-align: center;
+    
+  }
+
+  img {
+    max-width: 800px;
+    max-height: 800px;
+  }

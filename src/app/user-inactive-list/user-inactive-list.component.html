@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+      <h2 class="display-4">Inactive User List</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">NID</th>
+            <th scope="col">Production House</th>
+            <th scope="col">Address</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of inactiveUsers | slice: (page-1)*pageSize : (page-1)*pageSize + pageSize">
+            <td>{{user.name}}</td>
+            <td>{{user.role_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone_number}}</td>
+            <td>{{user.nid}}</td>
+            <td>{{user.production_house}}</td>
+            <td>{{user.address}}</td>
+            <td><button type="button" class="btn btn-success" (click)="activateUser(user.user_id)">Activate</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Pagination -->
+      <ngb-pagination [pageSize]="pageSize" [collectionSize]="inactiveUsers.length" [(page)]="page"
+      [directionLinks]="false"></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9">
+            <h2 class="display-4">Add Shipment</h2>
+            <form [formGroup]="shipmentAddForm" (ngSubmit)="onSubmit()" class="justify-content-center">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="expected_shipping_datetime" class="col-form-label">Shipping Date</label>
+                            <input class="form-control" type="datetime-local" value=""
+                                formControlName="expected_shipping_datetime" name="fromDate">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="expected_arrival_datetime" class="col-form-label">Arrival Date</label>
+                            <input class="form-control" type="datetime-local" value=""
+                                formControlName="expected_arrival_datetime" name="toDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <select class="form-control" (change)="onDivisionChange($any($event.target).value)">
+                                <option disabled selected value="">Select Division</option>
+                                <option *ngFor="let division of divisions" value={{division.id}}>{{division.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <select formControlName="destination_district" class="form-control"
+                                (change)="onDistrictChange($any($event.target).value)">
+                                <option disabled selected value="">Select District</option>
+                                <option *ngFor="let district of districts" value={{district.id}}>{{district.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <select formControlName="destination_upazila" class="form-control"
+                                (change)="onUpazilaChange($any($event.target).value)">
+                                <option disabled selected value="">Select Upazila</option>
+                                <option *ngFor="let upazila of upazilas" value={{upazila.id}}>{{upazila.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="destination_address" name="destination_address"
+                                class="form-control" placeholder="Destination Address">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="destination_contact" name="destination_contact"
+                                class="form-control" placeholder="Destination Contact">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="shipping_agent" name="shipping_agent"
+                                class="form-control" placeholder="Shipping Agent">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" formControlName="shipping_contact" name="shipping_contact"
+                                class="form-control" placeholder="Shipping Contact">
+                        </div>
+                    </div>
+                </div>
+                <!-- List view -->
+                <div class="row">
+                    <div class="col-4 mx-auto">
+                        <div class="input-group">
+                            <input type="text" formControlName="crateBarcode" [(ngModel)]="crateBarcode"
+                            (ngModelChange)="addCrate($event)" name="crateBarcode" value=""
+                            class="form-control" placeholder="Crate Barcode"
+                            aria-label="Crate Barcode" aria-describedby="crate-barcode">
+
+                            <!-- <button class="btn btn-info" type="button" (click)="addCrate()">Add</button> -->
+
+                        </div>
+                        <ul class="list-group">
+                            <li href="#" class="list-group-item" *ngFor="let crateBarcode of crateBarcodes">
+                                {{crateBarcode}}
+                                <button class="btn btn-info float-right" (click)="removeCrate(crateBarcode)"
+                                    type="button" value="">x</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- List view ends -->
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="checked" id="checked" [checked]="checked" (change)="onCheckboxStatusChange(!checked)">
+                    <label class="form-check-label" for="checked">Checked</label>
+                </div>
+                <div class="col-4 mx-auto">
+                    <button class="btn btn-primary" [disabled]="shipmentAddForm.invalid || checked === false">Submit</button>
+                </div>
+            </form>
+            <div class="alert alert-danger" role="alert" *ngIf="message !== ''">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</div>

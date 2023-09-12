@@ -1,0 +1,183 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9">
+            <h2 class="display-4">Dashboard</h2>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <div class="text-center">
+                                        <img  src="../../assets/images/farmer.png">
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Registered Farmer </h5>
+                                    <p>{{registered_farmer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/landowner.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Land Owner</h5>
+                                    <p>{{registered_land_owner}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/land.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Registered Land</h5>
+                                    <p>{{registered_land}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/prepared_land.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Land Prepared</h5>
+                                    <p>{{land_prepared}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/crated.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Total Crated</h5>
+                                    <p>{{total_crated}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/shipment.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Total Shipment</h5>
+                                    <p>{{total_shipment}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/harvested_crop.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Total Harvested</h5>
+                                    <p>{{total_harvested_crop_in_kg}} kg</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 icon">
+                                    <img src="../../assets/images/vegetable.png">
+                                </div>
+                                <div class="col-7 border-left">
+                                    <h5 class="card-title">Cutivated Items</h5>
+                                    <p>{{cultivated_items}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body" id="table">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h5 class="card-title text-right">Harvested Vegetable List</h5>
+                                </div>
+                                <div class="col-5">
+                                    <a class="btn btn-info btn-sm" [routerLink]="['/dashboard/vegetable/list']">See Full
+                                        list</a>
+                                </div>
+                            </div>
+                            <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" mat-sort-header="crop_name">Crop Name</th>
+                                        <th scope="col" mat-sort-header="crop_name">Picture</th>
+                                        <th scope="col" mat-sort-header="eng_name">English Name</th>
+                                        <th scope="col" mat-sort-header="local_name">Local Name</th>
+                                        <th scope="col" mat-sort-header="quantity">Quantity</th>
+                                        <th scope="col" mat-sort-header="local_name">Scientific Name</th>
+                                        <th scope="col" mat-sort-header="local_name">Major Nutrients</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let vegetable of sortedData">
+                                        <td>{{vegetable.crop_name}}</td>
+                                        <td>
+                                            <img src="{{'data:image/jpg;base64,' +  vegetable.photo}}">
+                                        </td>
+                                        <td>{{vegetable.eng_name}}</td>
+                                        <td>{{vegetable.local_name}}</td>
+                                        <td>{{vegetable.quantity}}</td>
+                                        <td>{{vegetable.scientific_name}}</td>
+                                        <td>{{vegetable.major_nutrient}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

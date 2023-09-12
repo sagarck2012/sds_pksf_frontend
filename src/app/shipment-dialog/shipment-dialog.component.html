@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>{{shipment.shipping_code}}</h1>
+        <hr>
+    </div>
+    <div class="row justify-content-center">
+        <h2>Shipment Receipt</h2>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p><strong>Date: </strong>{{shipment.shipping_datetime}}</p>
+            <p><strong>Ship To: </strong>
+                {{shipment.destination_address}},
+                {{shipment.destination_upazila_name}},
+                {{shipment.destination_district_name}}
+            </p>
+            <p><strong>Contact: </strong>{{shipment.destination_contact}}</p>
+            <p><strong>Shipment processed by: </strong>{{name}}</p>
+        </div>
+
+        <div class="col-6">
+            <p><strong>Shipment ID: </strong>{{shipment.shipping_code}}</p>
+            <p><strong>Origin Address: </strong>
+                {{shipment.origin_address}},
+                {{shipment.origin_upazila_name}},
+                {{shipment.origin_district_name}}
+            </p>
+            <p><strong>Shipping Agent: </strong>{{shipment.shipping_agent}}</p>
+            <p><strong>Shipping Contact: </strong>{{shipment.shipping_contact}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">SL.</th>
+                <th scope="col">Crate No.</th>
+                <th scope="col">Barcode No.</th>
+                <th scope="col">Total Packages</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let crate of crates; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{crate.crate_no}}</td>
+                <td>{{crate.bar_code}}</td>
+                <td>{{crate.total_no_of_package}}</td>
+              </tr>
+            </tbody>
+          </table>
+        <p><strong>Crates Total: </strong>{{shipment.total_no_of_crate}}</p>
+    </div>
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <button type="button" id="printBtn" class="btn btn-info" (click)="printShipment()">Print</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <div>
+                <h2 class="display-4">Receive Shipment</h2>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="shipping_code" name="shipping_code" placeholder="Shipping Code" class="form-control">
+                </div>
+                <button [disabled]="shipping_code === ''" class="btn btn-info" (click)="onSubmit()">Receive</button>
+            </div>
+        </div>
+    </div>
+</div>

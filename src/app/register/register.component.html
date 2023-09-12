@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-4 mx-auto">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <h1 class="display-4">Register</h1>
+                <div class="form-group">
+                    <input type="text" formControlName="name" name="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="nid" name="nid" class="form-control" placeholder="NID">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="phone_number" name="phone_number" class="form-control"
+                        placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="address" name="address" class="form-control"
+                        placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <input type="email" formControlName="email" name="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" formControlName="password" name="password" class="form-control"
+                        placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <select formControlName="role" class="form-control"
+                        (change)="onRoleChange($any($event.target).value)">
+                        <option disabled value="0">Select Role</option>
+                        <option *ngFor="let role of roles" value={{role.id}}>
+                            {{role.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select formControlName="production_house" class="form-control"
+                        (change)="onProductionHouseChange($any($event.target).value)">
+                        <option disabled selected value="0">Select Production House</option>
+                        <option *ngFor="let productionHouse of productionHouses" value={{productionHouse.id}}>
+                            {{productionHouse.name}}
+                        </option>
+                    </select>
+                </div>
+                <button [disabled]="this.registerForm.invalid" class="btn btn-success btn-lg">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

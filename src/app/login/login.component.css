@@ -1,0 +1,30 @@
+.container-fluid{
+  background-color: #343957;
+  height: 100%;
+}
+
+div.form-group{
+  margin-top: 5%;
+  background-color: white;
+  text-align: center;
+  padding: 5%;
+
+}
+
+.form-floating {
+  margin: 5%;
+}
+
+img.sds-logo{
+  height: 70px;
+  width: 70Px;
+  margin-top: 1%;
+}
+
+.btn.btn-info.btn-lg{
+  margin-bottom: 5%;
+}
+
+p.small.font-italic{
+  margin-top: 10%;
+}

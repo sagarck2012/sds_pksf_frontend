@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9">
+            <h2 class="display-4">Packaging</h2>
+            <form [formGroup]="harvestingListForm" (ngSubmit)="onSubmit()" class="form-inline justify-content-center">
+                <div class="form-group">
+                    <label for="start_date" class="col-1 col-form-label">From</label>
+                    <input class="form-control" type="date" value="" formControlName="start_date" name="fromDate">
+                </div>
+                <div class="form-group">
+                    <label for="end_date" class="col-1 col-form-label">To</label>
+                    <input class="form-control" type="date" value="" formControlName="end_date" name="toDate">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" (change)="onCropChange($any($event.target).value)">
+                        <option disabled selected value="">Select Crop</option>
+                        <option *ngFor="let crop of crops" value={{crop.id}}>{{crop.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select formControlName="crop_type_id" class="form-control"
+                        (change)="onCropTypeChange($any($event.target).value)">
+                        <option disabled selected value="">Select Crop Type</option>
+                        <option *ngFor="let cropType of cropTypes" value={{cropType.crop_type_id}}>
+                            {{cropType.local_name}}
+                        </option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" [disabled]="harvestingListForm.invalid">Submit</button>
+            </form>
+            <form>
+                <div class="spinner-border text-info" role="status" *ngIf="dataLoading === true">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <table class="table table-bordered" *ngIf="emptyTable === true">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="col text-center">
+                                    Check
+                                </div>
+                            </th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">No Data Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="harvestingList.length > 0 && !emptyTable">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col-2">
+                                    <div class="col text-center">
+                                        Check
+                                    </div>
+                                </th>
+                                <th scope="col-6">Date</th>
+                                <th scope="col-4">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let harvesting of harvestingList">
+                                <th>
+                                    <div class="col text-center">
+                                        <input type="checkbox" class="form-check-input"
+                                            (click)="selectedHarvesting(harvesting)">
+                                    </div>
+                                </th>
+                                <td><label class="form-check-label">{{harvesting.created_at}}</label></td>
+                                <td><label class="form-check-label">{{harvesting.quantity}} kg</label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-2">
+                            <select class="form-control" (change)="onUnitChange($any($event.target).value)">
+                                <option disabled selected value="">Select Unit</option>
+                                <option value="kg">KG</option>
+                                <option value="piece">Piece</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <select class="form-control" (change)="onPackageChange($any($event.target).value)">
+                                <option disabled selected value="">Select Unit Per Package</option>
+                                <option *ngFor="let unit of units" value={{unit}}>{{unit}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label>Total: <span>{{totalQuantity}}</span></label>
+                        </div>
+                        <div class="col-3">
+                            <label>Total No. of Sticker: <span>{{total_no_of_sticker}}</span></label>
+                        </div>
+                    </div>
+
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-success" (click)="generateSticker()">Generate
+                            Sticker</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

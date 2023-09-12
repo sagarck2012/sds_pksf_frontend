@@ -1,0 +1,17 @@
+
+@media print {
+    #printPageButton {
+        display: none;
+    }
+    .col-3{
+        display: none;
+    }
+    app-navbar{
+        display: none;
+    }
+    img{
+        height: 2000px;
+        width: 2200px;
+        transform: rotate(90deg);
+    }
+}

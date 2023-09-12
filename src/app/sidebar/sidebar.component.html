@@ -1,0 +1,141 @@
+<nav class="sidebar">
+    <hr>
+    <div class="navbar-nav">
+        <div class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" type="submit" [routerLink]="['/dashboard']">
+                <mat-icon aria-hidden="false" aria-label="dashboard icon">dashboard</mat-icon>
+                <span>Dashboard</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="#processing" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
+                <mat-icon aria-hidden="false" aria-label="inventory_2 icon">inventory_2</mat-icon>
+                <span>Processing</span>
+            </a>
+            <!-- Sub -->
+            <div id="processing" class="collapse" [routerLinkActive]="['show']">
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/packaging/package']">
+                        <mat-icon aria-hidden="false" aria-label="add_comment icon">add_comment</mat-icon>
+                        <span>Create Sticker</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/packaging/search']">
+                        <mat-icon aria-hidden="false" aria-label="preview icon">preview</mat-icon>
+                        <span>Print Preview</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/sticker/search']">
+                        <mat-icon aria-hidden="false" aria-label="print icon">print</mat-icon>
+                        <span>Reprint</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#crating" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
+                <mat-icon aria-hidden="false" aria-label="shopping_cart icon">shopping_cart</mat-icon>
+                <span>Crate Management</span>
+            </a>
+            <!-- Sub -->
+            <div id="crating" class="collapse" [routerLinkActive]="['show']">
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/crating']">
+                        <mat-icon aria-hidden="false" aria-label="add_shopping_cart icon">add_shopping_cart</mat-icon>
+                        <span>Crating</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/crate/list']">
+                        <mat-icon aria-hidden="false" aria-label="format_list_bulleted icon">format_list_bulleted</mat-icon>
+                        <span> Crate List</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/crate/register']">
+                        <mat-icon aria-hidden="false" aria-label="add_circle_outline icon">add_circle_outline</mat-icon>
+                        <span>Register Crate</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/crate/return']">
+                        <mat-icon aria-hidden="false" aria-label="assignment_returned icon">assignment_returned</mat-icon>
+                        <span>Return Crate</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#shipment" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
+                <mat-icon aria-hidden="false" aria-label="local_shipping icon">local_shipping</mat-icon>
+                <span>Shipment</span>
+            </a>
+            <!-- Sub -->
+            <div id="shipment" class="collapse" [routerLinkActive]="['show']">
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/shipment/add']">
+                        <mat-icon aria-hidden="false" aria-label="add_box icon">add_box</mat-icon>
+                        <span>Add Shipment</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/shipment/receive']">
+                        <mat-icon aria-hidden="false" aria-label="assignment_return icon">assignment_return</mat-icon>
+                        <span>Receive Shipment</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/shipment/list']">
+                        <mat-icon aria-hidden="false" aria-label="list_alt icon">list_alt</mat-icon>
+                        <span>Shipping List</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" type="submit" [routerLink]="['/surveillance']">
+                <mat-icon aria-hidden="false" aria-label="spa icon">video_camera_front</mat-icon>
+                <span>Video Surveillance</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" [routerLinkActive]="['active']" type="submit" [routerLink]="['/crop']">
+                <mat-icon aria-hidden="false" aria-label="spa icon">spa</mat-icon>
+                <span>Crop List</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="#user" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
+                <mat-icon aria-hidden="false" aria-label="person icon">person</mat-icon>
+                <span>User</span>
+            </a>
+            <!-- Sub -->
+            <div id="user" class="collapse" [routerLinkActive]="['show']">
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/user/register']">
+                        <mat-icon aria-hidden="false" aria-label="person_add icon">person_add</mat-icon>
+                        <span>Add user</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/user/list/active']">
+                        <mat-icon aria-hidden="false" aria-label="people icon">people</mat-icon>
+                        <span>User List</span>
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-link sub" [routerLinkActive]="['active']" type="submit" [routerLink]="['/user/list/inactive']">
+                        <mat-icon aria-hidden="false" aria-label="no_accounts icon">no_accounts</mat-icon>
+                        <span>Inactive User List</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer -->
+    <p class="small">Copyright© 1998-2021 DataSoft Systems Bangladesh Limited</p>
+    <!-- Footer -->
+</nav>

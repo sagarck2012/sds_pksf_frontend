@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9">
+            <div *ngFor="let sticker of sticker_list" id="sticker">
+                <div class="row">
+                    <div class="col-6">
+                        <img id="qr-code" src="{{'data:image/jpg;base64,' +  sticker.qr_code_base64}}" />
+                    </div>
+                    <div class="col-6 details">
+                        <p><strong>{{sticker.name_en}}</strong></p>
+                        <p><strong>Net Weight: {{sticker.net_weight}} KG</strong></p>
+                        <p><strong>Packaging Date: {{sticker.packaging_date}}</strong></p>
+                        <p><strong>Barcode: {{sticker.sticker_bar_code}}</strong></p>
+                        <p><strong>SDS Enterprise</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <img id="bar-code" src="{{'data:image/jpg;base64,' +  sticker.bar_code_base64}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="submit">
+                <button id="printPageButton" class="btn btn-info" (click)="printSticker()">Print</button>
+            </div>
+        </div>
+    </div>
+</div>

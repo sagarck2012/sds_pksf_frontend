@@ -1,0 +1,19 @@
+div.col-4.mx-auto{
+  text-align: center;
+}
+
+.btn-primary {
+  margin: 2%;
+}
+.list-group {
+  margin: 2%;
+  text-align: center;
+}
+  
+.list-group-item {
+  padding: 0%;
+    
+}
+.form-check{
+  text-align: center;
+}

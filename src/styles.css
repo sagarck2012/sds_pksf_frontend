@@ -1,0 +1,48 @@
+@import "~angular-notifier/styles";
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  background-color: whitesmoke;
+  font-size: 14px;
+}
+
+div.col-3 {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+div.col-9 {
+  padding-top: 6%;
+  padding-left: 0%;
+}
+
+div.col-6 {
+  padding-top: 6%;
+}
+div.col-4{
+  padding-top: 5%;
+}
+
+h2.display-4 {
+  text-align: center;
+  color: #868e96;
+}
+
+table {
+  text-align: center;
+  margin-top: 4%;
+  background-color: white;
+}
+
+td {
+  color: gray;
+}
+
+
+form.form-inline.justify-content-center {
+  margin-top: 4%;
+}
+
+li {
+  list-style: none;
+}

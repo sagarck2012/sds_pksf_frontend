@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9">
+            <h2 class="display-4">Harvested Vegetable List</h2>
+            <table class="table table-bordered" matSort (matSortChange)="sortData($event)">
+                <thead>
+                    <tr>
+                        <th scope="col" mat-sort-header="crop_name">Crop Name</th>
+                        <th scope="col" mat-sort-header="crop_name">Picture</th>
+                        <th scope="col" mat-sort-header="eng_name">English Name</th>
+                        <th scope="col" mat-sort-header="local_name">Local Name</th>
+                        <th scope="col" mat-sort-header="quantity">Quantity</th>
+                        <th scope="col" mat-sort-header="local_name">Scientific Name</th>
+                        <th scope="col" mat-sort-header="local_name">Major Nutrients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vegetable of sortedData">
+                        <td>{{vegetable.crop_name}}</td>
+                        <td>
+                            <img src="{{'data:image/jpg;base64,' +  vegetable.photo}}">
+                        </td>
+                        <td>{{vegetable.eng_name}}</td>
+                        <td>{{vegetable.local_name}}</td>
+                        <td>{{vegetable.quantity}}</td>
+                        <td>{{vegetable.scientific_name}}</td>
+                        <td>{{vegetable.major_nutrient}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+
+div.col-6{     
+    text-align: center;
+}
+
+div.col-6.details{
+    padding-top: 150px;
+}
+
+img#qr-code{
+    height: 300px;
+    width: 300px;
+}
+
+ img#bar-code{
+    width: 900px;
+    height: 200px;
+}
+
+div.submit{
+    text-align: center;
+    padding-right: 15%;
+}
+
+ @media print {
+
+    div.col-6.details{
+        padding-left: 200px;
+    }
+    p{
+        width: 500px;
+        font-size: 35px;
+    }
+
+    img#qr-code{
+        height: 500px;
+        width: 500px;
+    }
+
+    img#bar-code{
+        height: 300px;
+        width: 1300px;
+    }
+
+    div#sticker{
+        transform: rotate(90deg);
+    }
+
+    #printPageButton {
+        display: none;
+    }
+
+    div#sticker{
+        page-break-after: always;
+        page-break-before: always;
+    }
+    
+    div.col-3{
+        display: none;
+    }
+
+    app-navbar {
+        display: none;
+    }
+    
+}

@@ -1,0 +1,20 @@
+.display-4 {
+  color: grey;
+}
+.col-4 {
+  text-align: center;
+}
+
+.btn-primary {
+  margin: 4%;
+}
+
+.list-group {
+  margin: 2%;
+  text-align: center;
+}
+
+.list-group-item {
+  padding: 0%;
+  
+}

@@ -1,0 +1,13 @@
+.display-4 {
+    color: grey;
+    margin-top: 5%;
+}
+
+.list-group {
+    margin-top: 10%;
+}
+
+a.list-group-item{
+    color: rgb(77, 74, 74);
+}
+ 
